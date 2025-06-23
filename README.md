@@ -13,3 +13,7 @@ Dieses Repository enthält eine kleine Streamlit-App, um die einzelnen Wörter a
    streamlit run streamlit_app.py
    ```
 3. Füge deine Keyword-Phrasen in das Textfeld ein. Die App zeigt die Wörter nach Häufigkeit sortiert an.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

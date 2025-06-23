@@ -15,6 +15,9 @@ Requires Python 3.8 or higher.
    ```
 3. Füge deine Keyword-Phrasen in das Textfeld ein. Die App zeigt die Wörter nach Häufigkeit sortiert an.
 
+   Optional kannst du im Feld "Präfix vor jedem Keyword" einen Text eingeben,
+   der vor jedes ausgegebene Wort gesetzt wird.
+
 4. Über den Button "Ergebnis herunterladen" kannst du die Liste als `wortliste.txt` speichern.
 
 ## License

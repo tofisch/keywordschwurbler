@@ -11,6 +11,12 @@ st.title("Keyword Wortzähler")
 st.write("Füge deine Keyword-Phrasen unten ein (eine Phrase pro Zeile):")
 phrases_input = st.text_area("Phrasen", height=200)
 
+# Optional prefix to put in front of each keyword in the result
+prefix = st.text_input(
+    "Präfix vor jedem Keyword (optional)",
+    value="",
+)
+
 if phrases_input:
     # Convert all phrases into individual words
 
@@ -32,7 +38,7 @@ if phrases_input:
     sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
 
     # Prepare the text for display
-    result_lines = [f"{word} ({count})" for word, count in sorted_words]
+    result_lines = [f"{prefix}{word} ({count})" for word, count in sorted_words]
     result_text = "\n".join(result_lines)
 
     st.write("**Wörter nach Häufigkeit:**")

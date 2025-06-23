@@ -1,35 +1,39 @@
-# Keywordschwurbler
+# 🧠 Keywordschwurbler
 
-Dieses Repository enthält eine kleine Streamlit-App, um die einzelnen Wörter aus einer Liste von Keyword-Phrasen zu zählen.
-Requires Python 3.8 or higher.
+**Keywordschwurbler** ist eine kleine Streamlit-App, die aus benutzerdefinierten Phrasen die Häufigkeit einzelner Wörter zählt – mit optionalem Präfix und Exportfunktion.
 
-## Nutzung
+---
 
-1. Installiere die Abhängigkeiten (z. B. in einer virtuellen Umgebung):
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Starte die Anwendung:
-   ```bash
-   streamlit run streamlit_app.py
-   ```
-3. Füge deine Keyword-Phrasen in das Textfeld ein. Die App zeigt die Wörter nach Häufigkeit sortiert an.
+## 🔍 Features
 
-    Optional kannst du im Feld "Präfix vor jedem Keyword" einen Text eingeben,
-    der vor jedes ausgegebene Wort gesetzt wird.
+- Zählt Wörter aus beliebigen Text-Phrasen
+- Zeigt Häufigkeit an oder blendet sie aus
+- Fügt optional ein Präfix vor jedes Keyword
+- Download des Ergebnisses als `.txt`
+- Einfache Bedienung via Webinterface (Streamlit)
 
-    Nach der Berechnung kannst du über den Button "Zahlen entfernen"
-    die Häufigkeiten aus dem Ergebnis entfernen. Mit "Fenster zurücksetzen"
-    löschst du alle Eingaben.
+---
 
-    Nach der Berechnung kannst du über den Button "Zahlen entfernen" die
-    Häufigkeiten aus dem Ergebnis entfernen. Mit "Fenster zurücksetzen" löschst du
-    alle Eingaben.
+## 🚀 Online testen
 
+👉 Die App läuft z. B. auf [Streamlit Community Cloud](https://streamlit.io/cloud)  
+(Deployment-Hinweise siehe unten)
 
-4. Über den Button "Ergebnis herunterladen" kannst du die Liste als `wortliste.txt` speichern.
+---
 
-## License
+## 🖥️ Lokale Installation
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```bash
+# Klone das Repo
+git clone https://github.com/DEIN_USERNAME/keywordschwurbler.git
+cd keywordschwurbler
 
+# Virtuelle Umgebung (optional)
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Abhängigkeiten installieren
+pip install -r requirements.txt
+
+# App starten
+streamlit run streamlit_app.py

@@ -22,6 +22,11 @@ Requires Python 3.8 or higher.
     die Häufigkeiten aus dem Ergebnis entfernen. Mit "Fenster zurücksetzen"
     löschst du alle Eingaben.
 
+    Nach der Berechnung kannst du über den Button "Zahlen entfernen" die
+    Häufigkeiten aus dem Ergebnis entfernen. Mit "Fenster zurücksetzen" löschst du
+    alle Eingaben.
+
+
 4. Über den Button "Ergebnis herunterladen" kannst du die Liste als `wortliste.txt` speichern.
 
 ## License

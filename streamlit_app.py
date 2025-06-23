@@ -1,5 +1,6 @@
 import streamlit as st
 from collections import Counter
+import re
 
 st.title("Keyword Wortzähler")
 
@@ -7,10 +8,14 @@ st.write("Füge deine Keyword-Phrasen unten ein (eine Phrase pro Zeile):")
 phrases_input = st.text_area("Phrasen", height=200)
 
 if phrases_input:
-    # Split input into lines and then into words
+    # Split input into lines and extract words using regex
     words = []
     for line in phrases_input.splitlines():
-        line_words = line.split()
+
+        line_words = re.findall(r"\b\w+\b", line.lower())
+
+        line_words = [w.lower() for w in line.split()]
+
         words.extend(line_words)
 
     # Count word frequency

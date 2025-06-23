@@ -9,26 +9,32 @@ st.title("Keyword Wortzähler")
 
 # Show an input area for phrases, one per line
 st.write("Füge deine Keyword-Phrasen unten ein (eine Phrase pro Zeile):")
-phrases_input = st.text_area("Phrasen", height=200)
+phrases_input = st.text_area("Phrasen", height=200, key="phrases_input")
 
 # Optional prefix to put in front of each keyword in the result
 prefix = st.text_input(
     "Präfix vor jedem Keyword (optional)",
     value="",
+    key="prefix",
 )
+
+if st.button("Fenster zurücksetzen"):
+    st.session_state.phrases_input = ""
+    st.session_state.prefix = ""
+    st.session_state.hide_counts = False
+    st.session_state.result_text = ""
+
+if "hide_counts" not in st.session_state:
+    st.session_state.hide_counts = False
+
+if "result_text" not in st.session_state:
+    st.session_state.result_text = ""
 
 if phrases_input:
     # Convert all phrases into individual words
-
-    # Split input into lines and extract words using regex
-
     words = []
     for line in phrases_input.splitlines():
-
         line_words = re.findall(r"\b\w+\b", line.lower())
-
-        line_words = [w.lower() for w in line.split()]
-
         words.extend(line_words)
 
     # Count how often each word appears
@@ -37,12 +43,24 @@ if phrases_input:
     # Sort words by frequency in descending order
     sorted_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)
 
-    # Prepare the text for display
-    result_lines = [f"{prefix}{word} ({count})" for word, count in sorted_words]
-    result_text = "\n".join(result_lines)
+    # Prepare the text for display with and without counts
+    with_counts = [f"{prefix}{word} ({count})" for word, count in sorted_words]
+    without_counts = [f"{prefix}{word}" for word, _ in sorted_words]
+
+    if st.session_state.hide_counts:
+        result_text = "\n".join(without_counts)
+    else:
+        result_text = "\n".join(with_counts)
+
+    st.session_state.result_text = result_text
 
     st.write("**Wörter nach Häufigkeit:**")
-    st.text_area("Ergebnis", result_text, height=200)
+    st.text_area("Ergebnis", result_text, height=200, key="result_text")
+
+    if not st.session_state.hide_counts:
+        if st.button("Zahlen entfernen"):
+            st.session_state.hide_counts = True
+
     st.download_button(
         label="Ergebnis herunterladen",
         data=result_text,

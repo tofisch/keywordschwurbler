@@ -22,6 +22,13 @@ if st.button("Fenster zurücksetzen"):
     st.session_state.phrases_input = ""
     st.session_state.prefix = ""
     st.session_state.hide_counts = False
+    st.session_state.result_text = ""
+
+if "hide_counts" not in st.session_state:
+    st.session_state.hide_counts = False
+
+if "result_text" not in st.session_state:
+    st.session_state.result_text = ""
 
     st.experimental_rerun()
 
@@ -51,6 +58,8 @@ if phrases_input:
     else:
         result_text = "\n".join(with_counts)
 
+    st.session_state.result_text = result_text
+
     st.write("**Wörter nach Häufigkeit:**")
     st.text_area("Ergebnis", result_text, height=200, key="result_text")
 
@@ -58,8 +67,8 @@ if phrases_input:
         if st.button("Zahlen entfernen"):
             st.session_state.hide_counts = True
 
-            st.experimental_rerun()
 
+            st.experimental_rerun()
 
     st.download_button(
         label="Ergebnis herunterladen",

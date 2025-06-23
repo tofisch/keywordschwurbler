@@ -1,6 +1,7 @@
 # Keywordschwurbler
 
 Dieses Repository enthält eine kleine Streamlit-App, um die einzelnen Wörter aus einer Liste von Keyword-Phrasen zu zählen.
+Requires Python 3.8 or higher.
 
 ## Nutzung
 

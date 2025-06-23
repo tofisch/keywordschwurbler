@@ -10,7 +10,7 @@ if phrases_input:
     # Split input into lines and then into words
     words = []
     for line in phrases_input.splitlines():
-        line_words = line.split()
+        line_words = [w.lower() for w in line.split()]
         words.extend(line_words)
 
     # Count word frequency

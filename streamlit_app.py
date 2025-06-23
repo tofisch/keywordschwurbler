@@ -2,6 +2,7 @@
 
 import streamlit as st
 from collections import Counter
+import re
 
 # Display the title of the page
 st.title("Keyword Wortzähler")
@@ -12,9 +13,16 @@ phrases_input = st.text_area("Phrasen", height=200)
 
 if phrases_input:
     # Convert all phrases into individual words
+
+    # Split input into lines and extract words using regex
+
     words = []
     for line in phrases_input.splitlines():
-        line_words = line.split()
+
+        line_words = re.findall(r"\b\w+\b", line.lower())
+
+        line_words = [w.lower() for w in line.split()]
+
         words.extend(line_words)
 
     # Count how often each word appears
@@ -29,6 +37,12 @@ if phrases_input:
 
     st.write("**Wörter nach Häufigkeit:**")
     st.text_area("Ergebnis", result_text, height=200)
+    st.download_button(
+        label="Ergebnis herunterladen",
+        data=result_text,
+        file_name="wortliste.txt",
+        mime="text/plain",
+    )
 else:
     # Ask the user to provide phrases if the input is empty
     st.write("Gib oben Phrasen ein, um die Wortzählung zu sehen.")

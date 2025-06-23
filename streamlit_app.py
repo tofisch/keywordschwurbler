@@ -11,7 +11,11 @@ if phrases_input:
     # Split input into lines and extract words using regex
     words = []
     for line in phrases_input.splitlines():
+
         line_words = re.findall(r"\b\w+\b", line.lower())
+
+        line_words = [w.lower() for w in line.split()]
+
         words.extend(line_words)
 
     # Count word frequency

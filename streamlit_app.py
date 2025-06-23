@@ -22,7 +22,9 @@ if st.button("Fenster zurücksetzen"):
     st.session_state.phrases_input = ""
     st.session_state.prefix = ""
     st.session_state.hide_counts = False
+
     st.experimental_rerun()
+
 
 if "hide_counts" not in st.session_state:
     st.session_state.hide_counts = False
@@ -55,7 +57,9 @@ if phrases_input:
     if not st.session_state.hide_counts:
         if st.button("Zahlen entfernen"):
             st.session_state.hide_counts = True
+
             st.experimental_rerun()
+
 
     st.download_button(
         label="Ergebnis herunterladen",

@@ -25,5 +25,11 @@ if phrases_input:
 
     st.write("**Wörter nach Häufigkeit:**")
     st.text_area("Ergebnis", result_text, height=200)
+    st.download_button(
+        label="Ergebnis herunterladen",
+        data=result_text,
+        file_name="wortliste.txt",
+        mime="text/plain",
+    )
 else:
     st.write("Gib oben Phrasen ein, um die Wortzählung zu sehen.")

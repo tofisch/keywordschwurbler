@@ -1,1 +1,15 @@
-# keywordschwurbler
+# Keywordschwurbler
+
+Dieses Repository enthält eine kleine Streamlit-App, um die einzelnen Wörter aus einer Liste von Keyword-Phrasen zu zählen.
+
+## Nutzung
+
+1. Installiere die Abhängigkeiten (z. B. in einer virtuellen Umgebung):
+   ```bash
+   pip install streamlit
+   ```
+2. Starte die Anwendung:
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+3. Füge deine Keyword-Phrasen in das Textfeld ein. Die App zeigt die Wörter nach Häufigkeit sortiert an.

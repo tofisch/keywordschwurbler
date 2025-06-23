@@ -6,7 +6,7 @@ Dieses Repository enthält eine kleine Streamlit-App, um die einzelnen Wörter a
 
 1. Installiere die Abhängigkeiten (z. B. in einer virtuellen Umgebung):
    ```bash
-   pip install streamlit
+   pip install -r requirements.txt
    ```
 2. Starte die Anwendung:
    ```bash
